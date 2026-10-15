@@ -10,8 +10,7 @@
 ---
 
 ## 🎮 Play Online Now
-👉 **[Play Angry Cats Live](https://YOUR-GITHUB-USERNAME.github.io/angry-cats/)**  
-*(Replace `YOUR-GITHUB-USERNAME` in the link with your actual GitHub username)*
+👉 **[Play Angry Cats Live](https://famz88.github.io/angry-cats/)**  
 
 ---
 
@@ -70,5 +69,7 @@ No build steps or Node.js required!
 1. Clone the repository:
    ```bash
    git clone [git@github.com:Famz88/angry-cats.git]
-  📜 License
+
+
+📜 License
 This project is open source under the MIT License. Feel free to fork, customize, and add your own levels! 
