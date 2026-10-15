@@ -69,6 +69,6 @@ No build steps or Node.js required!
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/YOUR-GITHUB-USERNAME/angry-cats.git](https://github.com/YOUR-GITHUB-USERNAME/angry-cats.git)
+   git clone [git@github.com:Famz88/angry-cats.git]
   📜 License
 This project is open source under the MIT License. Feel free to fork, customize, and add your own levels! 
