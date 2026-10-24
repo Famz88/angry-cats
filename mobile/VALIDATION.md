@@ -3,6 +3,8 @@
 Host: Windows; JDK 17.0.20.1, Android SDK 35, AGP 8.9.1, Gradle 8.11.1, Playwright 1.56.1 and Chromium 141.0.7390.37.
 The root website, README and license are unchanged. Local branch: codex/mobile-native-builds.
 
+GitHub write access has been restored. [Draft PR #1](https://github.com/Famz88/angry-cats/pull/1) contains this work. Current CI results and artifacts are available in [GitHub Actions](https://github.com/Famz88/angry-cats/actions/workflows/mobile-build.yml).
+
 ## Passed
 
 - Node logic/physics tests: all 100 levels contain cats and targets, finite physics, launch, paused physics/timers, retry cleanup, stars, unlocks, scores and saved progress.
@@ -24,11 +26,11 @@ The root website, README and license are unchanged. Local branch: codex/mobile-n
 - Fix clipped home buttons on short landscape screens and hide gameplay HUD on home.
 - Add checksum-pinned Gradle wrapper, npm lockfile, expanded device tests, APK asset checks and CI lint artifacts.
 
-## Blocked / unverified
+## Native and CI verification
 
-- APK installation/native launch: no emulator installed locally. ADB also cannot create its normal profile directory in this sandbox. APK signature, contents and entry point were inspected, but native launch has NOT been verified.
-- iOS Simulator build: NOT RUN. This host is Windows and cannot run Xcode. The macOS Actions job cannot start until the branch is pushed.
-- GitHub push/PR/CI: connector reports the user's repository role as admin, but creating a branch repeatedly returns HTTP 403, Resource not accessible by integration. Git's Windows credential helper fails in the sandbox; direct credential enumeration returns access denied. No credentials were exposed. No remote branch, PR or workflow run was created.
+- Android build/lint and APK asset checks passed on Linux CI after replacing the obsolete SDK `tools` package with explicit API 35 packages. The `android-smoke` job installs the resulting APK in an Android 15 emulator, checks that WebView exposes the local menu, backgrounds/resumes the app and uploads screenshots, accessibility dumps and logcat. Consult the PR checks for the latest launch result. No physical OnePlus was used here.
+- iOS Simulator build succeeded on the macOS runner, including XcodeGen, xcodebuild and artifact packaging. The output contains an unsigned Simulator .app in a tar archive that preserves executable permissions. It has not been installed on an iPhone or exercised in an iOS Simulator runtime.
+- The previous GitHub HTTP 403 is resolved. Branch creation, file upload and draft PR creation succeeded. No credentials were exposed.
 - No signed iPhone IPA exists. An unsigned Simulator .app is not installable on an iPhone. See mobile/README.md for Xcode team selection and provisioning. No Apple account information is needed until device signing is possible.
 
 ## Install on OnePlus 13
@@ -44,4 +46,4 @@ Future updates must reuse the same signing key to update without uninstalling. C
 4. Connect/register the iPhone and run the app from Xcode. Only the Team ID is needed as a project setting; do not share passwords or private signing keys in chat or Git.
 5. For an IPA, archive for generic iOS and export in Xcode Organizer using a valid development, ad hoc or distribution profile. Development/ad hoc profiles must include the device. A Simulator build cannot be renamed into an iPhone installer.
 
-Nothing was merged, published to an app store or purchased. The workflow is prepared but has not run.
+Nothing was merged, published to an app store or purchased. Android, browser and iOS Simulator CI jobs have run; use the PR checks for the current revision's exact status.
