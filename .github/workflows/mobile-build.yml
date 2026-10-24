@@ -22,16 +22,20 @@ jobs:
           java-version: '17'
       - uses: android-actions/setup-android@v3
         with:
-          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+          packages: 'platform-tools platforms;android-36 build-tools;35.0.0'
           log-accepted-android-sdk-licenses: false
       - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew --no-daemon :app:assembleDebug :app:lintDebug
+      - run: ./gradlew --no-daemon :app:assembleDebug :app:lintDebug :app:bundleRelease :app:lintRelease
         working-directory: mobile/android
       - run: python3 mobile/tests/apk_assets.py mobile/android/app/build/outputs/apk/debug/app-debug.apk
       - uses: actions/upload-artifact@v4
         with:
           name: Angry-Cats-Android-APK
           path: mobile/android/app/build/outputs/apk/debug/app-debug.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Angry-Cats-Unsigned-AAB
+          path: mobile/android/app/build/outputs/bundle/release/app-release.aab
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -57,7 +61,7 @@ jobs:
           sudo udevadm trigger --name-match=kvm
       - uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 35
+          api-level: 36
           arch: x86_64
           target: default
           profile: Nexus 4
