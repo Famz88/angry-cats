@@ -59,10 +59,10 @@ jobs:
         with:
           api-level: 35
           arch: x86_64
-          target: google_apis
-          profile: pixel_6
+          target: default
+          profile: Nexus 4
           disable-animations: true
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics -memory 2048 -cores 2
           script: bash mobile/tests/android-smoke.sh artifacts/app-debug.apk
       - uses: actions/upload-artifact@v4
         if: always()
