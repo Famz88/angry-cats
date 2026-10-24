@@ -1,0 +1,15 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.famzz.angrycats'
+    compileSdk 36
+    defaultConfig {
+        applicationId 'com.famzz.angrycats'
+        minSdk 26
+        targetSdk 36
+        versionCode 2
+        versionName '1.0.0'
+    }
+    sourceSets.main.assets.srcDirs = ['../../www']
+    buildTypes { release { minifyEnabled false } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
