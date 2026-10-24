@@ -62,6 +62,7 @@ jobs:
           target: google_apis
           profile: pixel_6
           disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics
           script: bash mobile/tests/android-smoke.sh artifacts/app-debug.apk
       - uses: actions/upload-artifact@v4
         if: always()
