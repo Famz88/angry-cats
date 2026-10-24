@@ -1,0 +1,9 @@
+android/.gradle/
+android/local.properties
+android/**/build/
+ios/build/
+ios/*.xcodeproj/
+ios/*.xcworkspace/
+ios/*-Simulator.tar.gz
+node_modules/
+test-results/

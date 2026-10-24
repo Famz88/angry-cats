@@ -1,0 +1,14 @@
+{
+  "name": "angry-cats-mobile",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Offline Android and iOS slingshot game",
+  "scripts": {
+    "serve": "python3 -m http.server 4173 --directory www",
+    "test": "node tests/gameplay.cjs && node tests/devices.cjs",
+    "test:logic": "node tests/logic.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}
